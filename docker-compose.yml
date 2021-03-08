@@ -9,4 +9,20 @@ services:
     ports:
       - 80:80
     volumes:
-    - ./:/app
+    - ./code:/app
+
+  database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'blog'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: ')mS-hu>`eWfrH8K'
+      MYSQL_ROOT_PASSWORD: ')mS-hu>`eWfrH8K'
+    ports:
+      - 3306:3306
+    volumes:
+      - blog:/var/lib/mysql
+
+volumes:
+  blog:
